@@ -6,7 +6,7 @@
 <p>{{ contact }}</p>
 {% endfor %}
 
-<nanv>
+<nav>
     <ul>
         {% for p in page_obj.paginator.page_range %}
         <li>
@@ -14,5 +14,5 @@
         </li>
         {% endfor %}
     </ul>
-</nanv>
+</nav>
 {% endblock %}

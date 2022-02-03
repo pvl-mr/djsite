@@ -28,7 +28,7 @@ def index(request):
 
 """Класс-представление для отображения данных на главной странице, заменяет функцию index"""
 class WomenHome(DataMixin, ListView):
-    paginate_by = 3
+    # ListView автоматически передаёт paginator и page_obj
     model = Women
     template_name = 'women/index.html' # по умолчанию ищется women_list.html
     context_object_name = 'posts'# по умолчанию ищется object_list
