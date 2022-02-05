@@ -13,8 +13,6 @@ class DataMixin:
         context = kwargs
         my_cats = Category.objects.annotate(total=Count('women')).filter(total__gt=0)
 
-        print(len(my_cats))
-
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:
             user_menu.pop(1)
