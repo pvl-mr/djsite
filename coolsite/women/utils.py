@@ -11,11 +11,12 @@ class DataMixin:
     paginate_by = 20
     def get_user_context(self, **kwargs):
         context = kwargs
-        my_cats = cache.get('cats')
-        if not my_cats:
-            my_cats = Category.objects.annotate(total=Count('women')).filter(total__gt=0)
-            cache.set('cats', my_cats, 60)
+        # my_cats = cache.get('cats')
+        # if not my_cats:
+        #     my_cats = Category.objects.annotate(total=Count('women')).filter(total__gt=0)
+        #     cache.set('cats', my_cats, 60)
 
+        my_cats = Category.objects.annotate(total=Count('women')).filter(total__gt=0)
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:
             user_menu.pop(1)
